@@ -1,0 +1,85 @@
+<div class="row shadow p-3 mb-5 bg-body rounded" style="margin-top: 15px;">
+  <div class="col-md-6">
+    <h4 class="mt-4 mb-3 fw-bold">Product</h4>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- title -->
+      <div class="form-group">
+        <label>Title</label>
+        <input formControlName="title" [(ngModel)]="updateProduct.title" type="text" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['title'].errors }" />
+        <div *ngIf="f['title'].invalid" class="invalid-feedback">
+          <div *ngIf="f['title'].errors?.['required']">Title is required.</div>
+        </div>
+      </div>
+
+      <!-- detail -->
+      <div class="form-group">
+        <label>Detail</label>
+        <input formControlName="detail" [(ngModel)]="updateProduct.detail" type="text" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['detail'].errors }" />
+        <div *ngIf="f['detail'].invalid" class="invalid-feedback">
+          <div *ngIf="f['detail'].errors?.['required']">Detail is required.</div>
+        </div>
+      </div>
+
+      <!-- price -->
+      <div class="form-group">
+        <label>Price</label>
+        <div class="input-group">
+          <span class="input-group-text">Rp</span>
+          <input formControlName="price" [(ngModel)]="updateProduct.price" type="text" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['price'].errors }" />
+          <span class="input-group-text">.00</span>
+          <div *ngIf="f['price'].invalid" class="invalid-feedback">
+            <div *ngIf="f['price'].errors?.['required']">Price is required.</div>
+            <div *ngIf="f['price'].errors?.['min']">Price should be 1000 or higher.</div>
+            <div *ngIf="f['price'].errors?.['pattern']">Number only.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- stock -->
+      <div class="form-group">
+        <label>Stock</label>
+        <input formControlName="stock" [(ngModel)]="updateProduct.stock" type="text" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['stock'].errors }" />
+        <div *ngIf="f['stock'].invalid" class="invalid-feedback">
+          <div *ngIf="f['stock'].errors?.['required']">Stock is required.</div>
+          <div *ngIf="f['stock'].errors?.['min']">Stock should be 0 or higher.</div>
+          <div *ngIf="f['stock'].errors?.['pattern']">Number only.</div>
+        </div>
+      </div>
+
+      <!-- category -->
+      <div class="form-group">
+        <label>Category</label>
+        <select formControlName="category" [(ngModel)]="updateProduct.category" type="number" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['category'].errors}">
+          <option value="" disabled> Choose.. </option>
+          <option *ngFor="let item of categories$ |async" value={{item.id}}>
+            {{item.name}}
+          </option>
+        </select>
+        <div *ngIf="f['category'].invalid" class="invalid-feedback">
+          <div *ngIf="f['category'].errors?.['required']">Category is required.</div>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="form-group">
+        <label>Image URL</label>
+        <input formControlName="imageUrl" [(ngModel)]="updateProduct.imageUrl" type="url" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['imageUrl'].errors }" />
+        <div *ngIf="f['imageUrl'].invalid" class="invalid-feedback">
+          <div *ngIf="f['imageUrl'].errors?.['required']">Image URL is required.</div>
+          <div *ngIf="f['imageUrl'].errors?.['pattern']">Please enter a valid URL.</div>
+        </div>
+      </div>
+      <button class="btn btn-primary mb-5">Save</button>
+    </form>
+  </div>
+  <div class="col-md-6 " >
+    <div class="mt-5 pt-5 mb-5 d-flex justify-content-center">
+      <app-product-display [product]="dataProduct" [show-actions]="false"></app-product-display>
+    </div>
+  </div>

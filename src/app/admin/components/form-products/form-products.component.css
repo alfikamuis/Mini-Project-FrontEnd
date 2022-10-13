@@ -1,0 +1,15 @@
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    height: 50px;
+}
+
+.btn {
+    width: 100%;
+}

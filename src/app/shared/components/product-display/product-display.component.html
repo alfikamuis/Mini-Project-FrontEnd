@@ -1,0 +1,21 @@
+<div class="card" style="width: 30rem;">
+    <img [src]="product.imageUrl" class="card-img-top">
+    <div class="card-body">
+        <div class="container">
+            <div class="row mb-3 border-bottom">
+                <h4 class="card-title">{{product.title}}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">{{product.detail}}</h6>
+                <p class="card-text"></p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-primary" disabled>
+                        {{ product.price | currency:"Rp. ":true}}</button>
+                <button type="button" class="btn btn-danger" disabled style="margin-left:5px; margin-right: 5px;">
+                       {{'stock: ' + product.stock}}</button>
+                <button type="button" class="btn btn-info" disabled>
+                        {{''+product.category}}</button>
+            </div>
+        </div>
+    </div>

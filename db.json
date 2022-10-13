@@ -1,0 +1,49 @@
+{
+  "product": [
+    {
+      "title": "acer swift x",
+      "detail": "sporting an 8th-gen Whiskey Lake Core i7-8565U CPU, 8GB of RAM, a 256GB ",
+      "price": "15000000",
+      "stock": "5",
+      "category": "electronic",
+      "imageUrl": "https://www.digitaltrends.com/wp-content/uploads/2019/05/acer-swift-3-2019-review-2.jpg?fit=1500%2C1000&p=1",
+      "id": 1
+    },
+    {
+      "title": "acer swift x",
+      "detail": "sporting an 9th-gen Whiskey Lake Core i7-8565U CPU, 8GB of RAM, a 256GB ",
+      "price": "13990000",
+      "stock": "66",
+      "category": "electronic",
+      "imageUrl": "https://www.digitaltrends.com/wp-content/uploads/2019/05/acer-swift-3-2019-review-2.jpg?fit=1500%2C1000&p=1",
+      "id": 2
+    },
+    {
+      "title": "Bussinesman on the line",
+      "detail": "NFT men on the lorong",
+      "price": "999999999",
+      "stock": "2",
+      "category": "fashion",
+      "imageUrl": "https://static01.nyt.com/images/2011/01/14/arts/14MOVING-span/MOVING-jumbo.jpg?quality=75&auto=webp",
+      "id": 3
+    }
+  ],
+  "category": [
+    {
+      "id": "electronic",
+      "name": "Electronic"
+    },
+    {
+      "id": "fashion",
+      "name": "Fashion"
+    },
+    {
+      "id": "shoes",
+      "name": "Shoes"
+    },
+    {
+      "id": "toys",
+      "name": "Toys"
+    }
+  ]
+}
