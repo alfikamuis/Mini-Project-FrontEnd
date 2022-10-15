@@ -1,0 +1,14 @@
+<div class="sticky-top" style="top: 50px ;">
+    <div class="list-group">
+        <li class="list-group-item bg-primary fw-bold" style="color: white ;"> Category </li>
+        <a *ngFor="let item of categories$ |async" routerLink="/" [queryParams]="{category: item.id}"
+            class="list-group-item list-group-item-action" [class.active]="category === item.id">
+            {{item.name}}
+        </a>
+    </div>
+    <div class="container">
+        <div class="row col-md-auto pt-3 " style="color: white ;">
+            <button class="btn btn-outline-primary" routerLink> All </button>
+        </div>
+    </div>
+</div>

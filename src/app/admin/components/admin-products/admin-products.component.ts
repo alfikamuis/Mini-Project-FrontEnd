@@ -10,11 +10,12 @@ import { ProductService } from 'src/app/shared/services/product.service';
   templateUrl: './admin-products.component.html',
   styleUrls: ['./admin-products.component.css']
 })
-export class AdminProductsComponent implements OnInit, OnDestroy {
+export class AdminProductsComponent implements OnInit{
 
-  dataProducts!: { title: string }[];
+  dataProducts!: IProduct[];
   filterProducts!: any[];
   private ngUnsubscribe = new Subject();
+  id = 0;
 
   constructor(
     private productService: ProductService,
@@ -32,9 +33,9 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
-    this.ngUnsubscribe.complete();
-  }
+  // ngOnDestroy(): void {
+  //   this.ngUnsubscribe.complete();
+  // }
 
   deleteById(productId: number) {
     this.productService.delete(productId).pipe(take(1)).subscribe(data => {
@@ -45,8 +46,14 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
 
   filter(query: string) {
     this.filterProducts = (query) ? this.dataProducts
-      .filter(data => data.title.toLowerCase().includes(query.toLowerCase())):
+      .filter(data => data.title.toLowerCase().includes(query.toLowerCase())) :
       this.dataProducts;
   }
+
+  pass(id: number) {
+    this.id = id;
+  }
+
+  alertPlaceholder:any = document.getElementById('liveAlertPlaceholder')
 
 }

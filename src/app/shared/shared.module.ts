@@ -14,6 +14,7 @@ import { ProductService } from './services/product.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductDisplayComponent } from './components/product-display/product-display.component';
 import { TableProductService } from './services/table-product.service';
+import { ShoppingCartService } from './services/shopping-cart.service';
 
 
 @NgModule({
@@ -46,6 +47,6 @@ import { TableProductService } from './services/table-product.service';
     //components
     ProductDisplayComponent
   ],
-  providers: [CategoryService,ProductService,TableProductService]
+  providers: [CategoryService,ProductService,TableProductService,ShoppingCartService]
 })
 export class SharedModule { }

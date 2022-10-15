@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable, ObservableInput } from 'rxjs';
+import { Observable, ObservableInput, take } from 'rxjs';
+import { ICart } from '../../models/cart';
 import { IProduct } from '../../models/product';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 @Component({
   selector: 'app-product-display',
@@ -10,14 +12,27 @@ import { IProduct } from '../../models/product';
 export class ProductDisplayComponent implements OnInit {
 
   @Input ('product') product!: any;
-  @Input ('show-actions') showAction: boolean = false;
+  @Input ('show-actions') showAction!: boolean;
 
-  imgUrl = "../../../../assets/img/dummy-product_2.png";
+  // cart: ICart = {
+  //   id: 0,
+  //   createdAt: new Date().getTime()
+  // };
 
-  constructor() { 
+  constructor(private shoppingCartService:ShoppingCartService) { 
   }
 
   ngOnInit(): void {
+   
+  }
+
+  addToCart(){
+    this.shoppingCartService.addToCart(this.product);
+    // let s:any = localStorage.getItem('cartId');
+    // let s$ = this.shoppingCartService.getItem(s,this.product.id);
+    // s$.then(data=>data.subscribe(para=>{
+    //   console.log(para.quantity);
+    // })).catch(err=>{console.log(err)})
   }
 
 }

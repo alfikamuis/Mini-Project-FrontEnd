@@ -12,10 +12,10 @@ import { ProductService } from 'src/app/shared/services/product.service';
   templateUrl: './form-products.component.html',
   styleUrls: ['./form-products.component.css']
 })
-export class FormProductsComponent implements OnInit, OnDestroy {
+export class FormProductsComponent implements OnInit {
 
   categories$;
-  private ngUnsubscribe = new Subject();
+  // private ngUnsubscribe = new Subject();
 
   form: FormGroup = new FormGroup({
     title: new FormControl('', Validators.required),
@@ -34,7 +34,7 @@ export class FormProductsComponent implements OnInit, OnDestroy {
     price: 0,
     stock: 0,
     category: '',
-    imageUrl: '',
+    imageUrl: "../../../../assets/img/dummy-product_2.png",
   };
   submitted = false;
   isUpdate = false;
@@ -56,14 +56,15 @@ export class FormProductsComponent implements OnInit, OnDestroy {
 
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) this.isUpdate = true;
-    if (this.id) this.productService.get(parseInt(this.id)).pipe(take(1)).subscribe(data => {
+    if (this.id) this.productService.get(parseInt(this.id)).subscribe(data => {
       this.updateProduct = data;
       console.log("success");
     })
   }
-  ngOnDestroy(): void {
-    this.ngUnsubscribe.complete();
-  }
+
+  // ngOnDestroy(): void {
+  //   this.ngUnsubscribe.complete();
+  // }
 
   ngOnInit() {
     this.primengConfig.ripple = true;

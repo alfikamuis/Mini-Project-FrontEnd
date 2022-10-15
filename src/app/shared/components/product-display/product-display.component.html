@@ -1,4 +1,31 @@
-<div class="card" style="width: 30rem;">
+<div class="card" [style]="showAction?{'width': '16rem'}:{'width': '100%'}">
+    <img [src]="product.imageUrl" class="card-img-top">
+    <div class="card-body">
+        <div class="row text-center">
+            <h4 class="card-title fw-bold">{{product.title}} </h4>
+            <h6 class="card-subtitle text-muted mb-2">
+                {{product.detail}}
+            </h6>
+        </div>
+        <div class="row">
+            <div class="col card-footer bg-white">
+                <button class="col-md-12 btn btn-primary btn-block fw-bold position-relative" style="height:100% ; margin-top: 7px;"
+                    [disabled]="!showAction" (click)="addToCart()">
+                    {{ product.price | currency:"Rp. ":true}}
+                    <span class="position-absolute top-0 start-50 translate-middle badge bg-danger" aria-disabled="true">
+                        {{product.stock}}
+                        <span class="">available</span>
+                        <span>, {{product.category}}</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- design 2 card -->
+<!-- <div class="card" style="width: 100%;">
     <img [src]="product.imageUrl" class="card-img-top">
     <div class="card-body">
         <div class="container">
@@ -9,13 +36,14 @@
             </div>
         </div>
         <div class="container">
-            <div class="col-md-12">
+            <div class="col-sm">
                 <button type="button" class="btn btn-primary" disabled>
-                        {{ product.price | currency:"Rp. ":true}}</button>
+                    {{ product.price | currency:"Rp. ":true}}</button>
                 <button type="button" class="btn btn-danger" disabled style="margin-left:5px; margin-right: 5px;">
-                       {{'stock: ' + product.stock}}</button>
+                    {{'stock: ' + product.stock}}</button>
                 <button type="button" class="btn btn-info" disabled>
-                        {{''+product.category}}</button>
+                    {{''+product.category}}</button>
             </div>
         </div>
     </div>
+</div> -->

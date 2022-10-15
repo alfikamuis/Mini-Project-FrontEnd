@@ -1,12 +1,52 @@
 {
+  "cart": [
+    {
+      "id": 1,
+      "createdAt": 123131231
+    },
+    {
+      "id": 2,
+      "createdAt": 111111
+    },
+    {
+      "createdAt": 1665774481176,
+      "id": 3
+    },
+    {
+      "createdAt": 1665780872003,
+      "id": 4
+    },
+    {
+      "createdAt": 1665782945771,
+      "id": 5
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "productId": 2,
+      "title": "acer swift x",
+      "price": "13990000",
+      "quantity": 1,
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "productId": 2,
+      "title": "acer swift z",
+      "price": "13990000",
+      "quantity": 2,
+      "userId": 2
+    }
+  ],
   "product": [
     {
-      "title": "acer swift x",
-      "detail": "sporting an 8th-gen Whiskey Lake Core i7-8565U CPU, 8GB of RAM, a 256GB ",
-      "price": "15000000",
-      "stock": "5",
-      "category": "electronic",
-      "imageUrl": "https://www.digitaltrends.com/wp-content/uploads/2019/05/acer-swift-3-2019-review-2.jpg?fit=1500%2C1000&p=1",
+      "title": "Bussinesman on the line",
+      "detail": "NFT men on the lorong",
+      "price": "999999999",
+      "stock": "2",
+      "category": "fashion",
+      "imageUrl": "https://static01.nyt.com/images/2011/01/14/arts/14MOVING-span/MOVING-jumbo.jpg?quality=75&auto=webp",
       "id": 1
     },
     {
@@ -26,6 +66,42 @@
       "category": "fashion",
       "imageUrl": "https://static01.nyt.com/images/2011/01/14/arts/14MOVING-span/MOVING-jumbo.jpg?quality=75&auto=webp",
       "id": 3
+    },
+    {
+      "title": "Clothes Swap",
+      "detail": "clothes for exchange",
+      "price": "232223",
+      "stock": "33",
+      "category": "fashion",
+      "imageUrl": "https://www.greenerkirkcaldy.org.uk/wp-content/uploads/2018/10/Clothes-Swap-840x620.jpg",
+      "id": 4
+    },
+    {
+      "title": "test",
+      "detail": "test",
+      "price": "1313123",
+      "stock": "1",
+      "category": "toys",
+      "imageUrl": "http://../../../../assets/img/dummy-product_2.png",
+      "id": 5
+    },
+    {
+      "title": "asda",
+      "detail": "asdasd",
+      "price": "0012312",
+      "stock": "12312",
+      "category": "shoes",
+      "imageUrl": "http://../../../../assets/img/dummy-product_2.png",
+      "id": 6
+    },
+    {
+      "title": "adsa",
+      "detail": "adasd",
+      "price": "12313",
+      "stock": "12",
+      "category": "fashion",
+      "imageUrl": "http://",
+      "id": 7
     }
   ],
   "category": [

@@ -1,1 +1,18 @@
-<p>products works!</p>
+<div class="row pt-3">
+    <!-- category -->
+    <div class="col-3" style="margin-right: 20px;">
+        <app-product-filter [category]="category"></app-product-filter>
+    </div>
+
+    <!-- product -->
+    <div class="col ">
+        <div class="row ">
+            <ng-container *ngFor="let items of filterProducts; let i = index">
+                <div class="col-sm-auto mb-6">
+                    <app-product-display [product]="items" [show-actions]="true"></app-product-display>
+                </div>
+                <!-- <div *ngIf="(i)%3 === 0" class="w-100"></div> -->
+            </ng-container>
+        </div>
+    </div>
+</div>

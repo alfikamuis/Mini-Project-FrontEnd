@@ -12,6 +12,24 @@
             </div>
         </div>
 
+        <!-- <data-table [items]="items" [itemCount]="itemCount" (reload)="reloadItems($event)">
+            <data-table-column [property]="'title'" [header]="'Title'" [sortable]="true" [resizable]="true">
+            </data-table-column>
+
+            <data-table-column [property]="'price'" [header]="'Price'" [sortable]="true" [resizable]="true">
+                <ng-template #dataTableCell let-item="item">
+                    {{ item.price | currency:'USD':true }}
+                </ng-template>
+            </data-table-column>
+
+            <data-table-column [property]="'$key'">
+                <ng-template #dataTableCell let-item="item">
+                    <a [routerLink]="['/admin/products/', item.$key]">Edit</a>
+                </ng-template>
+            </data-table-column>
+
+        </data-table> -->
+
         <div class="row pt-3 shadow p-3 mb-5 bg-body rounded width:auto">
             <table class="table text-center">
                 <thead class="table-dark">
@@ -34,7 +52,7 @@
                         <td>
                             <a [routerLink]="['/admin/products/',i.id]"
                                 style="text-decoration: none; color: deepskyblue; margin-right: 10%;"> Edit</a>
-                            <a [routerLink]="[]" (click)="deleteById(i.id)"
+                            <a (click)="deleteById(i.id)" [routerLink]="[]"
                                 style="text-decoration: none; color:tomato;">
                                 delete</a>
                         </td>
@@ -42,8 +60,6 @@
                 </tbody>
             </table>
         </div>
-
-
 
         <!-- <div class="row">
         <form>
