@@ -1,27 +1,46 @@
-# FeShopProject
+# Backend Dummy mysql + phpMyAdmin + Node.js
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+```sh
+app.use('/api/users', usersRouter);
+app.use('/api/products', productsRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/orders', orderRouter);
 
-## Development server
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# users 
+```sh
+        let userEmail = req.body.email;
+        let userPassword = req.body.password;
+        let userFirstName = req.body.fname;
+        let userLastName = req.body.lname;
+        let userUsername = req.body.username;
+        let age = req.body.age;
+        
+```
 
-## Code scaffolding
+# Products
+```sh
+        title: pTitle !== undefined ? pTitle : product.title,
+        description: PDescription !== undefined ? PDescription : product.description,
+        price: pPrice !== undefined ? pPrice : product.price,
+        quantity: pQuantity !== undefined ? pQuantity : product.quantity,
+        cat_id: category.id !== undefined ? category.id : product.cat_id,
+        image: pImage !== undefined ? pImage : product.image,
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Order 
+```sh
+       order_id: newOrderId,
+       product_id: p.id,
+       quantity: inCart
+```
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Auth
+```sh
+        let email = req.body.email;
+        let username = email.split("@")[0];
+        let password = await bcrypt.hash(req.body.password, 10);
+        let fname = req.body.fname;
+        let lname = req.body.lname;
+```
