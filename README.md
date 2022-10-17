@@ -1,6 +1,6 @@
-# FeShopProject
+# FeShopProject (Backend dummy on server-node-js branch)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+This project was mainly focusd CRUD product and cart implementation
 
 ## Development server
 
