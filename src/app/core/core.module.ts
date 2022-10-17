@@ -5,20 +5,24 @@ import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ShoppingModule } from '../shopping/shopping.module';
 import { ProductsComponent } from '../shopping/components/products/products.component';
+import { CartComponent } from '../shopping/components/cart/cart.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     RouterModule.forChild([
-      {path:'', component: ProductsComponent},
+
     ])
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class CoreModule { }

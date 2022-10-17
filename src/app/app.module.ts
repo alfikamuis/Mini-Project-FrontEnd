@@ -12,6 +12,11 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { ProductsComponent } from './shopping/components/products/products.component';
 import { ShoppingModule } from './shopping/shopping.module';
+// import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+// import {
+//   GoogleLoginProvider,
+//   FacebookLoginProvider
+// } from 'angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -24,6 +29,7 @@ import { ShoppingModule } from './shopping/shopping.module';
     AdminModule,
     SharedModule,
     ShoppingModule,
+   // SocialLoginModule,
     RouterModule.forRoot([
       { path: '', component: ProductsComponent },
     ]),
@@ -31,7 +37,33 @@ import { ShoppingModule } from './shopping/shopping.module';
     NgxSpinnerModule,
     ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    // {
+    //   provide: AuthServiceConfig,
+    //   useFactory: provideConfig
+    // },
+    // {
+    //   provide: 'SocialAuthServiceConfig',
+    //   useValue: {
+    //     autoLogin: false,
+    //     providers: [
+    //       {
+    //         id: GoogleLoginProvider.PROVIDER_ID,
+    //         provider: new GoogleLoginProvider(
+    //           'clientId'
+    //         )
+    //       },
+    //       {
+    //         id: FacebookLoginProvider.PROVIDER_ID,
+    //         provider: new FacebookLoginProvider('clientId')
+    //       }
+    //     ],
+    //     onError: (err:any) => {
+    //       console.error(err);
+    //     }
+    //   } as SocialAuthServiceConfig,
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

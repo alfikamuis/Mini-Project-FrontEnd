@@ -19,6 +19,9 @@ import { DescriptionPipe } from './pipes/description.pipe';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { OrderService } from './services/order.service';
+import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
+import { CheckEmailService } from './services/check-email.service';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,6 @@ import { OrderService } from './services/order.service';
     //components
     ProductDisplayComponent
   ],
-  providers: [CategoryService,ProductService,TableProductService,ShoppingCartService,ToastrService,OrderService]
+  providers: [CategoryService,ProductService,TableProductService,ShoppingCartService,ToastrService,OrderService,UserService,AuthService,CheckEmailService]
 })
 export class SharedModule { }

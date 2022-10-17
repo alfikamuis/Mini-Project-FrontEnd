@@ -51,7 +51,9 @@
                 <!-- acc -->
                 <li class="nav-item" ngbDropdown>
                     <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">
-                        Account
+                        <ul class="header-links pull-right">
+                            <li><a routerLink="/profile"> {{authState === false ? 'LOGIN' : 'My Account'}}</a>
+                          </ul>
                     </a>
                     <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
                         <a ngbDropdownItem routerLink='/admin/products'>Admin-products</a>

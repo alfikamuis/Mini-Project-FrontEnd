@@ -33,7 +33,7 @@ export class ShoppingCartService {
   };
 
   cartTotal$ = new BehaviorSubject<number>(0);
-  cartData$ = new BehaviorSubject<ICartServer>(this.cartDataServer);
+  cartData$ = new BehaviorSubject<ICartServer >(this.cartDataServer);
 
   constructor(
     private http: HttpClient,
