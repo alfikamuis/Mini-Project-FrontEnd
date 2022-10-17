@@ -9,17 +9,54 @@
         <!-- menu -->
         <div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cart</a>
+                <li class="nav-item " ngbDropdown>
+                    <a class="nav-link mr-5" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">Cart
+                        <span class="position-realtive top-0 start-50 translate badge rounded-pill bg-danger qty"
+                            aria-disabled="true">
+                            {{cartData.data[0].numInCart !== 0 ? cartData.data.length : 0}}
+                        </span>
+                    </a>
+
+                    <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+                        <div ngbDropdownItem class="cart-list" *ngIf="cartData.data[0].numInCart !== 0">
+                            <div class="product-widget" *ngFor="let c of cartData.data; let i=index">
+                                <div class="product-img">
+                                    <img src="{{c.product?.image}}" alt="" width="20px">
+                                </div>
+                                <div class="product-body">
+                                    <h5 class="product-name">{{c.product?.name}}</h5>
+                                    <h6 class="product-price"><span class="qty">{{c.numInCart}} x
+                                        </span>{{c.product?.price | currency:'Rp. '}}</h6>
+                                </div>
+                                <span class="btn btn-outline-danger text-center" style="height: 5px; font-size:x-small;"
+                                    (click)="delete(i)"></span>
+                            </div>
+                        </div>
+
+                        <div ngbDropdownItem class="cart-summary text-muted">
+                            <small>{{cartData.data[0].numInCart !== 0 ? cartData.data.length : 0}} Item(s)
+                                selected</small>
+                            <h6>TOTAL : {{cartTotal | currency:'Rp. '}}</h6>
+                        </div>
+
+                        <div class="cart-btns" ngbDropdownItem>
+                            <div class="row text-center">
+                                <span class="btn col-6" style="color:darkorchid;" routerLink="/cart"> View Cart </span>
+                                <span class=" btn col-6" style="color:darkorange;" routerLink="/checkout"> Checkout </span>
+                            </div>
+                        </div>
+                    </div>
                 </li>
+
+                <!-- acc -->
                 <li class="nav-item" ngbDropdown>
                     <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">
                         Account
                     </a>
                     <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
                         <a ngbDropdownItem routerLink='/admin/products'>Admin-products</a>
-                        <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Another action</a>
-                        <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Something else here</a>
+                        <a ngbDropdownItem href="#" (click)="$event.preventDefault()">--</a>
+                        <a ngbDropdownItem href="#" (click)="$event.preventDefault()">--</a>
                     </div>
                 </li>
             </ul>

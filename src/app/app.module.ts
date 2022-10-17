@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 import { AdminModule } from './admin/admin.module';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +26,10 @@ import { ShoppingModule } from './shopping/shopping.module';
     ShoppingModule,
     RouterModule.forRoot([
       { path: '', component: ProductsComponent },
-    ])
+    ]),
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

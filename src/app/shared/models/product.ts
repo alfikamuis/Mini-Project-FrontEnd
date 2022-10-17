@@ -1,9 +1,15 @@
 export interface IProduct {
-    id: number;
-    title: string;
-    detail: string;
-    price: number;
-    stock: number;
-    category: string;
-    imageUrl: string;
+    id: number,
+    name: string,
+    category: string | null,
+    description: string,
+    image: string,
+    price: number,
+    quantity: number,
+    images: string,
+}
+
+export interface IResponseProduct {
+    count: number,
+    products: IProduct[],
 }

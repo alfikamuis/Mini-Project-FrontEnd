@@ -2,7 +2,7 @@ import { query } from '@angular/animations';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, take } from 'rxjs';
-import { IProduct } from 'src/app/shared/models/product';
+import { IProduct, IResponseProduct } from 'src/app/shared/models/product';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
@@ -13,47 +13,35 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class AdminProductsComponent implements OnInit{
 
   dataProducts!: IProduct[];
-  filterProducts!: any[];
-  private ngUnsubscribe = new Subject();
-  id = 0;
+  filterProducts!: IProduct[];
+  pages!:number;
 
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute
   ) {
-
-    this.productService.getAll().pipe(take(1)).subscribe(data => {
-      this.filterProducts = this.dataProducts = data;
-    });
+    
+    //set pages
+    this.pages = 20;
   }
 
   ngOnInit(): void {
-    this.productService.getAll().pipe(take(1)).subscribe(data => {
-      this.filterProducts = this.dataProducts = data;
+    this.productService.getAll(this.pages).subscribe((data:any) => {
+      this.filterProducts = this.dataProducts = data.products;
     });
   }
 
-  // ngOnDestroy(): void {
-  //   this.ngUnsubscribe.complete();
-  // }
-
   deleteById(productId: number) {
     this.productService.delete(productId).pipe(take(1)).subscribe(data => {
-      console.log("delete success")
+      alert("delete success")
       this.ngOnInit();
     });
   }
 
   filter(query: string) {
     this.filterProducts = (query) ? this.dataProducts
-      .filter(data => data.title.toLowerCase().includes(query.toLowerCase())) :
+      .filter(data => data.name.toLowerCase().includes(query.toLowerCase())) :
       this.dataProducts;
   }
-
-  pass(id: number) {
-    this.id = id;
-  }
-
-  alertPlaceholder:any = document.getElementById('liveAlertPlaceholder')
 
 }

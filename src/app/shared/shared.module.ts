@@ -15,11 +15,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProductDisplayComponent } from './components/product-display/product-display.component';
 import { TableProductService } from './services/table-product.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
-
+import { DescriptionPipe } from './pipes/description.pipe';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { OrderService } from './services/order.service';
 
 @NgModule({
   declarations: [
-    ProductDisplayComponent
+    ProductDisplayComponent,
+    DescriptionPipe
   ],
   imports: [
     CommonModule,
@@ -31,7 +35,9 @@ import { ShoppingCartService } from './services/shopping-cart.service';
     FormsModule,
     AccordionModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule,
+    ToastrModule.forRoot(),
   ],
   exports: [
     NgbModule,
@@ -43,10 +49,12 @@ import { ShoppingCartService } from './services/shopping-cart.service';
     AccordionModule,
     HttpClientModule,
     ReactiveFormsModule,
-
+    DescriptionPipe,
+    NgxSpinnerModule,
+    ToastrModule,
     //components
     ProductDisplayComponent
   ],
-  providers: [CategoryService,ProductService,TableProductService,ShoppingCartService]
+  providers: [CategoryService,ProductService,TableProductService,ShoppingCartService,ToastrService,OrderService]
 })
 export class SharedModule { }

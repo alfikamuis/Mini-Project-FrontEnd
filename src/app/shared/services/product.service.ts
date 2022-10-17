@@ -12,22 +12,26 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   create(payload:IProduct) : Observable<IProduct>{
-    return this.http.post<IProduct>(`${environment.apiUrl}/product`,payload);
+    return this.http.post<IProduct>(`${environment.apiUrl}/products/create`,payload);
   }
 
-  getAll() : Observable<IProduct[]>{
-    return this.http.get<IProduct[]>(`${environment.apiUrl}/product`);
+  getAll(resultNumber:number) : Observable<IProduct[]>{
+    return this.http.get<IProduct[]>(`${environment.apiUrl}/products`,{
+      params:{
+        limit: resultNumber.toString()
+      }
+    });
   }
 
   get(productId : number) : Observable<IProduct> { 
-    return this.http.get<IProduct>(`${environment.apiUrl}/product/`+ productId);
+    return this.http.get<IProduct>(`${environment.apiUrl}/products/`+ productId);
   }
 
   update(productId:number,payload:IProduct) : Observable<IProduct>{
-    return this.http.put<IProduct>(`${environment.apiUrl}/product/`+ productId, payload);
+    return this.http.patch<IProduct>(`${environment.apiUrl}/products/`+ productId, payload);
   }
 
   delete(productId : number) : Observable<IProduct> { 
-    return this.http.delete<IProduct>(`${environment.apiUrl}/product/`+ productId);
+    return this.http.delete<IProduct>(`${environment.apiUrl}/products/`+ productId);
   }
 }

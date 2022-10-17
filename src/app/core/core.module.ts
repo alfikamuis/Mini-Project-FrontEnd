@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ShoppingModule } from '../shopping/shopping.module';
+import { ProductsComponent } from '../shopping/components/products/products.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,9 @@ import { ShoppingModule } from '../shopping/shopping.module';
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule.forChild([])
+    RouterModule.forChild([
+      {path:'', component: ProductsComponent},
+    ])
   ],
   exports: [
     HeaderComponent

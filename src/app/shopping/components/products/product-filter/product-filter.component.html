@@ -1,9 +1,9 @@
 <div class="sticky-top" style="top: 50px ;">
     <div class="list-group">
         <li class="list-group-item bg-primary fw-bold" style="color: white ;"> Category </li>
-        <a *ngFor="let item of categories$ |async" routerLink="/" [queryParams]="{category: item.id}"
-            class="list-group-item list-group-item-action" [class.active]="category === item.id">
-            {{item.name}}
+        <a *ngFor="let item of categories" routerLink="/" [queryParams]="{category: item.title}"
+            class="list-group-item list-group-item-action">
+            {{item.title}}
         </a>
     </div>
     <div class="container">

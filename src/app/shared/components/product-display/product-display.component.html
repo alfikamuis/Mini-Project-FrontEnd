@@ -1,19 +1,19 @@
 <div class="card" [style]="showAction?{'width': '16rem'}:{'width': '100%'}">
-    <img [src]="product.imageUrl" class="card-img-top">
+    <img [src]="product.image" class="card-img-top">
     <div class="card-body">
         <div class="row text-center">
-            <h4 class="card-title fw-bold">{{product.title}} </h4>
+            <h4 class="card-title fw-bold">{{product.name}} </h4>
             <h6 class="card-subtitle text-muted mb-2">
-                {{product.detail}}
+                {{product.description |description}}
             </h6>
         </div>
         <div class="row">
-            <div class="col card-footer bg-white">
-                <button class="col-md-12 btn btn-primary btn-block fw-bold position-relative" style="height:100% ; margin-top: 7px;"
+            <div class="card-footer bg-white justify-content-center">
+                <button class="col-sm-12 btn btn-primary btn-block fw-bold" style="height:100% ; margin-top: 7px;"
                     [disabled]="!showAction" (click)="addToCart()">
                     {{ product.price | currency:"Rp. ":true}}
                     <span class="position-absolute top-0 start-50 translate-middle badge bg-danger" aria-disabled="true">
-                        {{product.stock}}
+                        {{product.quantity}}
                         <span class="">available</span>
                         <span>, {{product.category}}</span>
                     </span>

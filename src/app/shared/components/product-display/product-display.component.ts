@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, ObservableInput, take } from 'rxjs';
 import { ICart } from '../../models/cart';
 import { IProduct } from '../../models/product';
@@ -14,25 +15,22 @@ export class ProductDisplayComponent implements OnInit {
   @Input ('product') product!: any;
   @Input ('show-actions') showAction!: boolean;
 
-  // cart: ICart = {
-  //   id: 0,
-  //   createdAt: new Date().getTime()
-  // };
-
-  constructor(private shoppingCartService:ShoppingCartService) { 
+  constructor(
+    private shoppingCartService:ShoppingCartService,
+    private router:Router
+    ) { 
   }
 
   ngOnInit(): void {
    
   }
 
+  selectProduct(id:number) {
+    this.router.navigate(['/products/' + id]).then();
+  }
+
   addToCart(){
-    this.shoppingCartService.addToCart(this.product);
-    // let s:any = localStorage.getItem('cartId');
-    // let s$ = this.shoppingCartService.getItem(s,this.product.id);
-    // s$.then(data=>data.subscribe(para=>{
-    //   console.log(para.quantity);
-    // })).catch(err=>{console.log(err)})
+    this.shoppingCartService.addProductToCart(this.product.id);
   }
 
 }

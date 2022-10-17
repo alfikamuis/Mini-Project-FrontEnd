@@ -12,24 +12,6 @@
             </div>
         </div>
 
-        <!-- <data-table [items]="items" [itemCount]="itemCount" (reload)="reloadItems($event)">
-            <data-table-column [property]="'title'" [header]="'Title'" [sortable]="true" [resizable]="true">
-            </data-table-column>
-
-            <data-table-column [property]="'price'" [header]="'Price'" [sortable]="true" [resizable]="true">
-                <ng-template #dataTableCell let-item="item">
-                    {{ item.price | currency:'USD':true }}
-                </ng-template>
-            </data-table-column>
-
-            <data-table-column [property]="'$key'">
-                <ng-template #dataTableCell let-item="item">
-                    <a [routerLink]="['/admin/products/', item.$key]">Edit</a>
-                </ng-template>
-            </data-table-column>
-
-        </data-table> -->
-
         <div class="row pt-3 shadow p-3 mb-5 bg-body rounded width:auto">
             <table class="table text-center">
                 <thead class="table-dark">
@@ -44,10 +26,10 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let i of filterProducts">
-                        <td>{{i.title}}</td>
-                        <td>{{i.detail}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.description | description }}</td>
                         <td>{{i.price | currency:"Rp. "}}</td>
-                        <td>{{i.stock}}</td>
+                        <td>{{i.quantity}}</td>
                         <td>{{i.category}}</td>
                         <td>
                             <a [routerLink]="['/admin/products/',i.id]"
@@ -61,62 +43,3 @@
             </table>
         </div>
 
-        <!-- <div class="row">
-        <form>
-            <div class="mb-3 row">
-                <label for="table-complete-search" class="col-xs-3 col-sm-auto col-form-label">Full text search:</label>
-                <div class="col-xs-3 col-sm-auto">
-                    <input id="table-complete-search" type="text" class="form-control" name="searchTerm"
-                        [(ngModel)]="service.searchTerm">
-                </div>
-                <span class="col col-form-label" *ngIf="service.loading$ | async">Loading...</span>
-            </div>
-
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col" sortable="title" (sort)="onSort($event)">title</th>
-                        <th scope="col" sortable="detail">detail</th>
-                        <th scope="col" sortable="price" (sort)="onSort($event)">price</th>
-                        <th scope="col" sortable="stock" (sort)="onSort($event)">stock</th>
-                        <th scope="col" sortable="category" (sort)="onSort($event)">category</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let country of countries$ | async">
-                        <th scope="row">{{ country.id }}</th>
-                        <td>
-                            <ngb-highlight [result]="country.title" [term]="service.searchTerm"></ngb-highlight>
-                        </td>
-                        <td>
-                            <ngb-highlight [result]="country.detail" [term]="service.searchTerm"></ngb-highlight>
-                        </td>
-                        <td>
-                            <ngb-highlight [result]="country.price | number" [term]="service.searchTerm"></ngb-highlight>
-                        </td>
-                        <td>
-                            <ngb-highlight [result]="country.stock | number" [term]="service.searchTerm"></ngb-highlight>
-                        </td>
-                        <td>
-                            <ngb-highlight [result]="country.category" [term]="service.searchTerm"></ngb-highlight>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="d-flex justify-content-between p-2">
-                <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page"
-                    [pageSize]="service.pageSize">
-                </ngb-pagination>
-
-                <select class="form-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
-                    <option [ngValue]="5">5 items per page</option>
-                    <option [ngValue]="10">10 items per page</option>
-                    <option [ngValue]="15">15 items per page</option>
-                </select>
-            </div>
-
-        </form>
-    </div> -->
-    </div>

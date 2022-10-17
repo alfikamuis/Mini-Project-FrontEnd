@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { take } from 'rxjs';
+import { ICategory } from 'src/app/shared/models/category';
 import { CategoryService } from 'src/app/shared/services/category.service';
 
 @Component({
@@ -11,12 +12,14 @@ export class ProductFilterComponent implements OnInit {
 
   @Input('category') category!: string | null;
 
+  categories: ICategory[]=[]
   constructor(
     private categoryService: CategoryService,) { }
 
-  categories$ = this.categoryService.getCategories().pipe(take(1));
-
   ngOnInit(): void {
+    this.categoryService.getCategories().pipe(take(1)).subscribe((data:any) =>{
+      this.categories = data.users;
+    })
   }
 
 }

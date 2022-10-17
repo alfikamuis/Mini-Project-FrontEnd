@@ -5,20 +5,20 @@
       <!-- title -->
       <div class="form-group">
         <label>Title</label>
-        <input formControlName="title" [(ngModel)]="updateProduct.title" type="text" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['title'].errors }" />
-        <div *ngIf="f['title'].invalid" class="invalid-feedback">
-          <div *ngIf="f['title'].errors?.['required']">Title is required.</div>
+        <input formControlName="name" [(ngModel)]="updateProduct.name" type="text" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+        <div *ngIf="f['name'].invalid" class="invalid-feedback">
+          <div *ngIf="f['name'].errors?.['required']">Title is required.</div>
         </div>
       </div>
 
       <!-- detail -->
       <div class="form-group">
         <label>Detail</label>
-        <input formControlName="detail" [(ngModel)]="updateProduct.detail" type="text" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['detail'].errors }" />
-        <div *ngIf="f['detail'].invalid" class="invalid-feedback">
-          <div *ngIf="f['detail'].errors?.['required']">Detail is required.</div>
+        <textarea rows="5" formControlName="description" [(ngModel)]="updateProduct.description" type="text" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['description'].errors }"></textarea>
+        <div *ngIf="f['description'].invalid" class="invalid-feedback">
+          <div *ngIf="f['description'].errors?.['required']">Detail is required.</div>
         </div>
       </div>
 
@@ -32,7 +32,7 @@
           <span class="input-group-text">.00</span>
           <div *ngIf="f['price'].invalid" class="invalid-feedback">
             <div *ngIf="f['price'].errors?.['required']">Price is required.</div>
-            <div *ngIf="f['price'].errors?.['min']">Price should be 1000 or higher.</div>
+            <div *ngIf="f['price'].errors?.['min']">Price should be 0 or higher.</div>
             <div *ngIf="f['price'].errors?.['pattern']">Number only.</div>
           </div>
         </div>
@@ -41,38 +41,39 @@
       <!-- stock -->
       <div class="form-group">
         <label>Stock</label>
-        <input formControlName="stock" [(ngModel)]="updateProduct.stock" type="text" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['stock'].errors }" />
-        <div *ngIf="f['stock'].invalid" class="invalid-feedback">
-          <div *ngIf="f['stock'].errors?.['required']">Stock is required.</div>
-          <div *ngIf="f['stock'].errors?.['min']">Stock should be 0 or higher.</div>
-          <div *ngIf="f['stock'].errors?.['pattern']">Number only.</div>
+        <input formControlName="quantity" [(ngModel)]="updateProduct.quantity" type="text" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['quantity'].errors }" />
+        <div *ngIf="f['quantity'].invalid" class="invalid-feedback">
+          <div *ngIf="f['quantity'].errors?.['required']">Stock is required.</div>
+          <div *ngIf="f['quantity'].errors?.['min']">Stock should be 0 or higher.</div>
+          <div *ngIf="f['quantity'].errors?.['pattern']">Number only.</div>
         </div>
       </div>
 
       <!-- category -->
       <div class="form-group">
         <label>Category</label>
-        <select formControlName="category" [(ngModel)]="updateProduct.category" type="number" class="form-control"
+        <select formControlName="category" [(ngModel)]="updateProduct.category" type="text" class="form-control" [value]=""
           [ngClass]="{ 'is-invalid': submitted && f['category'].errors}">
           <option value="" disabled> Choose.. </option>
-          <option *ngFor="let item of categories$ |async" value={{item.id}}>
-            {{item.name}}
+          <option *ngFor="let item of categories" value={{item.title}}>
+            {{item.title}}
           </option>
         </select>
         <div *ngIf="f['category'].invalid" class="invalid-feedback">
           <div *ngIf="f['category'].errors?.['required']">Category is required.</div>
+          <div *ngIf="f['category'].errors?.['nullValidator']">Select one.</div>
         </div>
       </div>
 
       <!-- Image -->
       <div class="form-group">
         <label>Image URL</label>
-        <input formControlName="imageUrl" [(ngModel)]="updateProduct.imageUrl" type="url" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['imageUrl'].errors }" />
-        <div *ngIf="f['imageUrl'].invalid" class="invalid-feedback">
-          <div *ngIf="f['imageUrl'].errors?.['required']">Image URL is required.</div>
-          <div *ngIf="f['imageUrl'].errors?.['pattern']">Please enter a valid URL.</div>
+        <input formControlName="image" [(ngModel)]="updateProduct.image" type="url" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['image'].errors }" />
+        <div *ngIf="f['image'].invalid" class="invalid-feedback">
+          <div *ngIf="f['image'].errors?.['required']">Image URL is required.</div>
+          <div *ngIf="f['image'].errors?.['pattern']">Please enter a valid URL.</div>
         </div>
       </div>
       <button class="btn btn-primary mb-5">Save</button>
